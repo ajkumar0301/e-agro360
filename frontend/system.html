@@ -2826,6 +2826,7 @@
 
 
 
+<<<<<<< HEAD
     <div class="content px-0 pt-9">
       <div class="d-flex w-100" id="layoutRow">
         <!-- Main content -->
@@ -4030,10 +4031,592 @@
       // Optional: hide dropdown after sort
       $(".custom-header .dropdown-menu").hide();
     });
+=======
+    <script>
+        const targetNode = document.getElementById("detail-view-Email_feature");
+
+        const observer = new MutationObserver(function () {
+            $("#detail-view-Email_feature").find(".mailsToSendFormData").each(function () {
+                var forVal = $(this).attr("for");
+                if (forVal) {
+                    $(`#display-${forVal}`).hide();
+                }
+            });
+        });
+
+        // Start observing
+        observer.observe(targetNode, {
+            childList: true,
+            subtree: true
+        });
+
+    </script>
+
+
+    <style>
+        .fullscreen-table {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+
+    <style>
+        #layoutRow {
+            height: calc(100vh - var(--phoenix-navbar-top-height));
+        }
+
+        /* expanded sidebar */
+        #sidebarModule {
+            width: 300px;
+            /* your normal sidebar width */
+            min-width: 300px;
+            max-width: 300px;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        /* collapsed sidebar */
+        #sidebarModule.collapsed {
+            width: 50px;
+            min-width: 50px;
+            max-width: 50px;
+        }
+
+        /* hide everything except footer when collapsed */
+        #sidebarModule.collapsed .card-header,
+        #sidebarModule.collapsed .card-body {
+            display: none !important;
+        }
+
+        /* footer always visible */
+        #sidebarModule .card-footer {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+        }
+
+        #main-wrapper {
+            flex-grow: 1;
+            min-width: 0;
+            /* important for flexbox to stop pushing page width */
+        }
+
+        #main-container-x {
+            overflow-x: auto;
+            white-space: nowrap;
+            /* so wide content scrolls instead of wrapping */
+        }
+
+        .container-form-module .table-responsive {
+            overflow-x: initial;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+    <style>
+        /* Highlight the active tab (stronger than default) */
+        #downloadLangTabs .nav-link {
+            color: #495057;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: .5rem;
+            padding: .45rem .8rem;
+            transition: all .15s ease;
+            margin-right: .35rem;
+        }
+
+        #downloadLangTabs .nav-link:hover {
+            color: #0b5ed7;
+            background: rgba(11, 94, 215, 0.06);
+            transform: translateY(-1px);
+        }
+
+        /* Active tab styling */
+        #downloadLangTabs .nav-link.active {
+            color: #fff !important;
+            background: linear-gradient(180deg, #0d6efd, #0b5ed7);
+            border-color: rgba(11, 94, 215, 0.2);
+            box-shadow: 0 6px 18px rgba(11, 94, 215, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* Make tab list slightly separated from content */
+        #downloadLangTabs+.tab-content {
+            margin-top: 1rem;
+        }
+
+        /* Ensure small screens look good */
+        @media (max-width: 576px) {
+            #downloadLangTabs .nav-link {
+                padding: .4rem .6rem;
+                font-size: .9rem;
+            }
+        }
+    </style>
+    <!-- Updated button styles (place in a <style> block in your page or stylesheet) -->
+    <style>
+        /* Download button — distinct look from active tab */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .85rem;
+            font-weight: 600;
+            border-radius: .6rem;
+            border: 0;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(90deg, #1e88e5 0%, #6a11cb 100%);
+            /* cool blue → violet */
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+            transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+            -webkit-appearance: none;
+        }
+
+        /* subtle hover and active */
+        .btn-download:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.03);
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.22);
+        }
+
+        .btn-download:active {
+            transform: translateY(0);
+        }
+
+        /* small / compact variant */
+        .btn-download.btn-sm {
+            padding: .3rem .6rem;
+            font-size: .85rem;
+            border-radius: .45rem;
+        }
+
+        /* Icon styling */
+        .btn-download .fa-download {
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+
+        /* Accessible focus ring */
+        .btn-download:focus {
+            outline: 3px solid rgba(26, 115, 232, 0.18);
+            outline-offset: 2px;
+        }
+
+        /* Alternate 'ghost' style (if you want a lighter button) */
+        .btn-download-ghost {
+            background: transparent;
+            color: #1e88e5;
+            border: 1px solid rgba(30, 136, 229, 0.12);
+            box-shadow: none;
+        }
+
+        .btn-download-ghost:hover {
+            background: rgba(30, 136, 229, 0.05);
+        }
+
+        /* Ensure spacing from other elements */
+        .download-actions {
+            display: flex;
+            gap: .5rem;
+            justify-content: flex-end;
+        }
+
+        /* keep button text white in all states */
+        .btn-download,
+        .btn-download:hover,
+        .btn-download:focus,
+        .btn-download:active {
+            color: #ffffff !important;
+        }
+    </style>
+    <style>
+        /* Make Select2 match Bootstrap control height & spacing */
+        .select2-container--default .select2-selection--single {
+            height: calc(1.5em + .75rem + 2px);
+            /* match .form-select height */
+            padding: .375rem .75rem;
+            border-radius: .375rem;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 1.2;
+        }
+
+        .select2-hidden-accessible {
+            display: none;
+        }
+
+        .mt-3 {
+            margin-top: 1rem;
+        }
+    </style>
+
+    <script>
+
+        document.getElementById("toggleSidebarForModule").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebarModule");
+            sidebar.classList.toggle("collapsed");
+            const isCollapsed = sidebar.classList.contains("collapsed");
+            this.setAttribute("aria-expanded", String(!isCollapsed));
+        });
+
+        function appendRow(button) {
+            const table = button.closest('table');
+            const tbody = table.querySelector('tbody');
+            const lastRow = tbody.querySelector('tr:last-child');
+            const clone = lastRow.cloneNode(true);
+
+            var showSerial = $(table).data("showserial");
+
+            if (showSerial === "yes") {
+                // Find the first cell and increment its value
+                const firstCell = clone.querySelector('td:first-child');
+                const currentNumber = parseInt(firstCell.textContent.trim(), 10) || 0;
+                firstCell.textContent = currentNumber + 1;
+            }
+
+            // Limpiar inputs, selects y textareas dentro de la fila clonada
+            $(clone).find('input, select, textarea').each(function () {
+                const $el = $(this);
+                const type = $el.attr('type');
+
+                if (type === 'checkbox' || type === 'radio') {
+                    $el.prop('checked', false);
+                } else {
+                    $el.val('');
+                }
+
+                // También removemos atributos selected y checked por si acaso
+                $el.removeAttr('selected').removeAttr('checked');
+            });
+
+            tbody.appendChild(clone);
+
+            // Rebind double-click and blur events for any date inputs
+            $('input[type="date"]').each(function () {
+                var input = $(this);
+
+                input.on('dblclick', function () {
+                    $(this).attr('type', 'text');
+                });
+
+                input.on('blur', function () {
+                    $(this).attr('type', 'date');
+                });
+            });
+
+            var temp = parseInt($(".dynamic-table-resizing-input").val(), 10) || 0;
+            $(tbody.closest(".table-responsive")).find(".dynamic-table-resizing-input").val(parseInt(temp) + 1);
+        }
+
+
+
+        $(document).on('click', '.delete-row', function () {
+            var $tbody = $(this).closest("tbody");
+            $(this).closest('tr').remove();
+
+            var temp = $(".dynamic-table-resizing-input").val();
+            $tbody.closest(".table-responsive").find(".dynamic-table-resizing-input").val(parseInt(temp) - 1);
+
+            let showserial = $tbody.closest("table").data("showserial");
+            if (showserial == "yes") {
+                $tbody.children().each(function (index) {
+                    $(this).find("td:first").text(index + 1);
+                });
+            }
+        });
+
+        function ExpandTableRadio(elem) {
+            var $table = $(elem).closest("table");
+            var $container = $table.parent(); // Assuming table is wrapped inside a div
+            var $icon = $(elem).find('span'); // Get the <span> inside <th>
+
+            if (!$container.hasClass('fullscreen-table')) {
+                // Expand to fullscreen
+                $container.addClass('fullscreen-table');
+                // Replace the entire HTML of the icon
+                $(elem).children().first().html("<span class='fas fa-compress'></span>");
+            } else {
+                // Collapse back
+                $container.removeClass('fullscreen-table');
+                // Replace the entire HTML of the icon
+                $(elem).children().first().html("<span class='fas fa-expand'></span>");
+            }
+        }
+
+        function ExpandTable(elem) {
+            const $table = $(elem).closest("table");
+            const $scrollContainer = $table.closest("div[style*='overflow-y: auto']");
+            const $iconContainer = $(elem).children().first(); // For icon change
+
+            if (!$scrollContainer.hasClass("fullscreen-table")) {
+                $scrollContainer
+                    .addClass("fullscreen-table")
+                    .css({ maxHeight: "", height: "", overflowY: "auto" }); // ✅ Clear inline height
+                $iconContainer.html("<span class='fas fa-compress'></span>");
+            } else {
+                $scrollContainer
+                    .removeClass("fullscreen-table")
+                    .css({ maxHeight: "400px", overflowY: "auto" }); // ✅ Restore when collapsed
+                $iconContainer.html("<span class='fas fa-expand'></span>");
+            }
+        }
+
+
+
+        // Arrow button focus functionality code
+        $(document).on("keydown", "table input, table select", function (e) {
+            const key = e.which;
+            const arrowKeys = [37, 38, 39, 40, 13];
+            if (!arrowKeys.includes(key)) return;
+
+            const $current = $(this);
+            const $td = $current.closest("td");
+            const $tr = $current.closest("tr");
+            const colIndex = $td.index();
+
+            // Check if select is open (some browsers do not expose this, so we rely on blur/focus behavior)
+            const isSelect = $current.is("select");
+            const isDate = $current.is("[type='date']");
+            const isNumber = $current.is("[type='number']");
+            if (isNumber && (key === 38 || key === 40)) {
+                e.preventDefault();
+            }
+
+            // Prevent arrow key value changes for select/date fields
+            if (isSelect || isDate) {
+                e.preventDefault();
+            }
+
+
+            switch (key) {
+                case 37: // Left arrow
+                    $td.prev().find("input, select").focus();
+                    break;
+                case 39: // Right arrow
+                    $td.next().find("input, select").focus();
+                    break;
+                case 38: // Up arrow
+                    $tr.prev().find("td").eq(colIndex).find("input, select").focus();
+                    break;
+                case 40: // Down arrow
+                case 13: // Enter key
+                    $tr.next().find("td").eq(colIndex).find("input, select").focus();
+                    break;
+            }
+        });
+
+
+
+        $(document).on("click", ".validFieldcheck", function () {
+            const input = $(this).closest(".mb-3").find("input").not(this);
+            input.val('');
+            input.prop("disabled", !input.prop("disabled"));
+        });
+
+
+        // Function to process .mailsToSendFormData elements
+        function processMailsToSendFormData() {
+            $('.mailsToSendFormData').each(function () {
+                var $this = $(this);
+
+                // Avoid re-processing already updated elements
+                if (!$this.attr('data-processed')) {
+                    var attrFor = $this.attr("for");
+                    $('<input>', {
+                        type: 'hidden',
+                        id: 'sendMailColumnName',
+                        name: 'sendMailColumnName',
+                        value: attrFor
+                    }).appendTo('body'); // Or append to a specific container if needed
+                    if (attrFor) {
+                        $this.attr({
+                            "name": attrFor,
+                            "id": attrFor,
+                            "data-processed": "true"
+                        });
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            // Initial processing on DOM ready
+            processMailsToSendFormData();
+
+            // Create a MutationObserver instance
+            const observer = new MutationObserver(function (mutationsList) {
+                for (const mutation of mutationsList) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length) {
+                        processMailsToSendFormData();
+                    }
+                }
+            });
+
+            // Start observing the body (or a more specific container)
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    </script>
+
+
+    <script>
+
+        function rangoDeColumnas(fieldname, variable, startId, endId = null) {
+
+            hideColumnByHeaderId(fieldname, $(`#${variable}`).val(), startId, endId);
+
+
+            $(document).on("change", `#${variable}`, function () {
+                var skipCount = $(this).val();
+                hideColumnByHeaderId(fieldname, skipCount, startId, endId);
+            });
+        }
+
+        // rangoDeColumnas("farmer_details", "testing", "rsize5", "rsize14");
+
+        function hideColumnByHeaderId(fieldname, skipCount, startId, endId = null) {
+            skipCount = isNaN(skipCount) || skipCount === null || skipCount === '' ? 0 : Number(skipCount);
+
+            const $table = $(`table.custom-table[fieldname="${fieldname}"]`);
+            if ($table.length === 0) {
+                console.warn('No table found with fieldname:', fieldname);
+                return;
+            }
+
+            const allHeaders = $table.find('th.custom-header');
+            const allRows = $table.find('tbody tr');
+            const resizeHeaderRow = $table.find('tr.resize-table-header td');
+
+            // Show all headers and cells
+            allHeaders.show();
+            resizeHeaderRow.show();
+            allRows.each(function () {
+                $(this).find('td.custom-cell').show();
+            });
+
+            // Get indices
+            const startIndex = allHeaders.index($(`#${startId}`));
+            const endIndex = endId ? allHeaders.index($(`#${endId}`)) : allHeaders.length - 1;
+
+            if (startIndex === -1 || (endId && endIndex === -1)) {
+                console.warn('Invalid header ID(s) provided.');
+                return;
+            }
+
+            if (endIndex < startIndex) {
+                console.warn('End header must be to the right of or same as start header.');
+                return;
+            }
+
+            const adjustedStart = startIndex + skipCount;
+            if (adjustedStart > endIndex) {
+                console.warn('All columns in the range fall within the skip range. Nothing to hide.');
+                return;
+            }
+
+            // Hide headers in adjusted range
+            allHeaders.slice(adjustedStart, endIndex + 1).hide();
+
+            // Hide cells in first header row (.resize-table-header)
+            resizeHeaderRow.slice(adjustedStart, endIndex + 1).hide();
+
+            // Hide corresponding cells in each body row
+            allRows.each(function () {
+                $(this).find('td.custom-cell').slice(adjustedStart, endIndex + 1).hide();
+            });
+
+            var headersLeftToshow = allHeaders.filter(':visible').length;
+            $table.find("tfoot").find("td").attr("colspan", headersLeftToshow + 1);
+        }
+
+    </script>
+
+
+    <script>
+        let currentSortedColumn = null;
+        let currentSortDirection = 'asc';
+
+        $(document).on("click", ".asc-btn, .desc-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $btn = $(this);
+            const $header = $btn.closest(".custom-header");
+            const $table = $header.closest("table");
+            const colIndex = $header.index();
+            const sortDirection = $btn.hasClass("asc-btn") ? "asc" : "desc";
+
+            if ($header.find("span.float-end").length) {
+                if ($header.find("span.asc-btn").length) {
+                    $header.append('<span style="cursor: pointer;" class="float-end desc-btn"><i class="fa-solid fa-sort-up"></i></span>');
+                } else if ($header.find("span.desc-btn").length) {
+                    $header.append('<span style="cursor: pointer;" class="float-end asc-btn"><i class="fa-solid fa-sort-down"></i></span>');
+                } else {
+                    $header.append('<span style="cursor: pointer;" class="float-end desc-btn"><i class="fa-solid fa-sort-up"></i></span>');
+                }
+
+                $header.closest("tr").find(".custom-header").each(function (index) {
+                    if (index == colIndex) return;
+                    $(this).append('<span style="cursor: pointer;" class="float-end asc-btn"><i class="fa-solid fa-sort"></i></span>');
+                    $(this).find("span.float-end").eq(0).remove();
+                });
+                $header.find("span.float-end").eq(0).remove();
+            }
+
+
+            const $rows = $table.find("tbody tr").get();
+
+            $rows.sort(function (a, b) {
+                const A = $(a).find("td").eq(colIndex).find("input").val() || $(a).find("td").eq(colIndex).text().trim();
+                const B = $(b).find("td").eq(colIndex).find("input").val() || $(b).find("td").eq(colIndex).text().trim();
+
+                return sortDirection === 'asc'
+                    ? A.localeCompare(B, undefined, { numeric: true })
+                    : B.localeCompare(A, undefined, { numeric: true });
+            });
+
+            $.each($rows, function (_, row) {
+                $table.children("tbody").append(row);
+            });
+
+            // Optional: hide dropdown after sort
+            $(".custom-header .dropdown-menu").hide();
+        });
+>>>>>>> 8af1971a22922d25efb0d7cba572f9d5074a0db8
 
 
 
 
+<<<<<<< HEAD
     $(document).on("contextmenu", ".custom-header", function (e) {
       try {
 
@@ -4090,31 +4673,90 @@
             const $dropdown = $(this).find('.dropdown-menu');
             if ($dropdown.length) {
               $dropdown.html(`
+=======
+        $(document).on("click", ".custom-header", function (e) {
+            e.stopPropagation(); // Prevent outside click closing it immediately
+
+            const $dropdown = $(this).find(".dropdown-menu");
+            const isVisible = $dropdown.is(":visible");
+
+            // Hide all dropdowns first
+            $(".custom-header .dropdown-menu").hide();
+
+            // Toggle current one
+            if (!isVisible) {
+                $dropdown.show();
+            }
+        });
+
+        // Hide when clicking outside
+        $(document).on("click", function () {
+            $(".custom-header .dropdown-menu").hide();
+        });
+
+
+
+
+        const observerForChangingOptions = new MutationObserver(function (mutationsList) {
+            mutationsList.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    const $node = $(node);
+
+                    // ✅ Check for any new header dropdowns
+                    $node.find('.custom-header').each(function () {
+
+                        if ($(this).find('i.fa-sort').length === 0 && $(this).find('span.asc-btn').length === 0) {
+                            $(this).append('<span style="cursor: pointer;" class="float-end asc-btn"><i class="fa-solid fa-sort"></i></span>');
+                        }
+
+
+
+                        const $dropdown = $(this).find('.dropdown-menu');
+                        if ($dropdown.length) {
+                            $dropdown.html(`
+>>>>>>> 8af1971a22922d25efb0d7cba572f9d5074a0db8
                                 <!-- <a class="dropdown-item asc-btn" href="#">ASC</a> 
                                 <a class="dropdown-item desc-btn" href="#">DESC</a> -->
                                 <a class="dropdown-item freezing-btn" href="#">Freeze column</a>
                                 <a class="dropdown-item frozen-column-exit" href="#">Unfreeze</a>
                             `);
+<<<<<<< HEAD
             }
           });
 
           // ✅ Check for any new tbody dropdowns in cells
           $node.find('td.custom-cell .dropdown-menu').each(function () {
             $(this).addClass("table-dropdown").html(`
+=======
+                        }
+                    });
+
+                    // ✅ Check for any new tbody dropdowns in cells
+                    $node.find('td.custom-cell .dropdown-menu').each(function () {
+                        $(this).addClass("table-dropdown").html(`
+>>>>>>> 8af1971a22922d25efb0d7cba572f9d5074a0db8
                             <a class="dropdown-item copy-row-btn" href="#">Copy row</a>
                             <a class="dropdown-item paste-above-btn" href="#">Paste above</a>
                             <a class="dropdown-item paste-below-btn" href="#">Paste below</a>
                             <a class="dropdown-item freeze-row-btn" href="#">Freeze row</a>
                             <a class="dropdown-item frozen-row-exit" href="#">Unfreeze</a>
                         `);
+<<<<<<< HEAD
           });
         });
       });
     });
+=======
+                    });
+                });
+            });
+        });
+>>>>>>> 8af1971a22922d25efb0d7cba572f9d5074a0db8
 
 
 
 
+<<<<<<< HEAD
     // Start observing
     observerForChangingOptions.observe(document.body, { childList: true, subtree: true });
 
@@ -4514,6 +5156,547 @@
   <!-- ===============================================-->
   <!--    End of App.js-->
   <!-- ===============================================-->
+=======
+        // Start observing
+        observerForChangingOptions.observe(document.body, { childList: true, subtree: true });
+
+        $(document).on("click", ".frozen-column-exit", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).closest('.dropdown-menu').hide();
+
+            const $table = $(this).closest("table");
+
+            // Unfreeze all columns
+            $table.find("th.frozen-column, td.frozen-column")
+                .removeClass("frozen-column")
+                .css({ left: '', zIndex: '', position: '', background: '' });
+
+            $table.find("th.custom-header").css({
+                position: "sticky",
+                top: "0px",
+                zIndex: 10,
+                background: "#fff"
+            });
+        });
+
+
+
+
+
+        $(document).on("click", ".freezing-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).closest('.dropdown-menu').hide();
+
+            const $header = $(this).closest(".custom-header");
+            const $table = $header.closest("table");
+            const colIndex = $header.index();
+
+            // Remove all previous frozen columns
+            $table.find("th, td").removeClass("frozen-column").css({
+                position: "",
+                left: "",
+                zIndex: "",
+                background: ""
+            });
+
+            // Calculate the left offset of the target column
+            let totalLeft = 0;
+            $table.find("thead tr:last th").each(function (i) {
+                if (i < colIndex) {
+                    totalLeft += $(this).outerWidth();
+                }
+            });
+
+            // Freeze header cell
+            const $targetHeader = $table.find("thead tr:last th").eq(colIndex);
+            $targetHeader.addClass("frozen-column").css({
+                position: "sticky",
+                top: "0px", // ✅ add this line to fix header stickiness
+                left: totalLeft + "px",
+                zIndex: 10,
+                backgroundColor: "#ffe7ba" // ✅ light orange
+            });
+
+
+            // Freeze each cell in that column
+            $table.find("tbody tr").each(function () {
+                const $td = $(this).find("td").eq(colIndex);
+                $td.addClass("frozen-column").css({
+                    position: "sticky",
+                    left: totalLeft + "px",
+                    zIndex: 4,
+                    background: "#fff"
+                });
+            });
+
+            $table.find("th.custom-header").css({
+                position: "sticky",
+                top: "0px",
+                zIndex: 10,
+                background: "#fff"
+            });
+
+            $table.find("thead tr:last th").eq(colIndex).css({
+                position: "sticky",
+                top: "0px",
+                left: totalLeft + "px",
+                zIndex: 11,
+                backgroundColor: "#ffe7ba"
+            });
+
+
+
+
+        });
+
+
+
+
+        // Prevent clicks inside any Select2 widget from bubbling up to the td handler
+
+        $(document).on('click', '.select2-container, .select2-selection, .select2-selection__rendered, .select2-selection__arrow', function (e) {
+            e.stopPropagation();
+        });
+        $(document).on('click', '.select2-dropdown', function (e) { e.stopPropagation(); });
+
+
+        // Toggle dropdown in td.custom-cell on click
+        $(document).on("click", "td.custom-cell", function (e) {
+            e.stopPropagation();
+
+            // use the event object passed to the handler
+            const tgt = e.target;
+            const tag = tgt && tgt.tagName && tgt.tagName.toLowerCase();
+
+            // find this cell's select2 container (if any)
+            const tdSelect2 = $(this).find('.select2-container')[0];
+
+            // If click is on an input or on a real select, or the click happened inside
+            // the Select2 UI of THIS td -> do nothing.
+            if (
+                tag === 'input' ||
+                tag === 'select' ||
+                (tdSelect2 && (tdSelect2 === tgt || tdSelect2.contains(tgt)))
+            ) {
+                return;
+            }
+
+
+            const $dropdown = $(this).find(".dropdown-menu");
+            const isVisible = $dropdown.is(":visible"); // ✅ check first
+
+            // Hide all other dropdowns
+            $("td.custom-cell .dropdown-menu").hide();
+
+            // Toggle current one properly
+            if (!isVisible) {
+                $dropdown.show();
+            }
+        });
+
+        // Hide dropdowns when clicking outside
+        $(document).on("click", function () {
+            $("td.custom-cell .dropdown-menu").hide();
+        });
+
+
+
+
+        let $clonedRow = null;
+
+
+
+
+
+
+
+        // Update horizontal position on scroll
+        $(window).on("scroll", function () {
+            const $clone = $(".cloned-frozen-row");
+            if ($clone.length) {
+                const tableLeft = $("table.custom-table").offset().left;
+                const scrollLeft = $(window).scrollLeft();
+                $clone.css("left", tableLeft - scrollLeft);
+            }
+        });
+
+
+
+
+
+
+
+
+
+        $(document).on("click", ".freeze-row-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $row = $(this).closest("tr");
+            const $tbody = $row.closest("tbody");
+
+            // Remove any existing frozen rows in the same table
+            $tbody.find("tr.frozen-row").removeClass("frozen-row").css({
+                position: '',
+                top: '',
+                zIndex: '',
+                background: ''
+            });
+
+            const navHeight = 56; // Adjust to your actual navbar height
+
+            $row.addClass("frozen-row").css({
+                position: "sticky",
+                top: navHeight + "px",
+                zIndex: 999,
+                background: "#fff"
+            });
+
+            $(this).closest(".dropdown-menu").hide();
+        });
+
+
+        $(document).on("click", ".frozen-row-exit", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $table = $(this).closest("table");
+
+            // Remove all frozen rows inside this table
+            $table.find("tr.frozen-row").removeClass("frozen-row").css({
+                position: '',
+                top: '',
+                zIndex: '',
+                background: '',
+                width: ''
+            });
+
+            // Restore sticky headers for this table
+            $table.find("th.custom-header").css({
+                position: "sticky",
+                top: "0px",
+                zIndex: 10,
+                background: "#fff"
+            });
+
+            $(this).closest(".dropdown-menu").hide();
+        });
+
+
+
+
+
+
+
+
+        // Cell dropdown toggle
+        $(document).on("click", "td.custom-cell", function (e) {
+            e.stopPropagation();
+
+            if (event.target.tagName.toLowerCase() === 'input' || event.target.tagName.toLowerCase() === 'select') {
+                return;
+            }
+
+            const $cell = $(this);
+            const $dropdown = $cell.find(".dropdown-menu");
+
+            // Hide other dropdowns
+            $(".custom-cell .table-dropdown").hide();
+
+            // Scroll container
+            const $scrollContainer = $cell.closest("div[style*='overflow-y: auto']");
+
+            // Calculate absolute position even for sticky (frozen) rows
+            const containerOffset = $scrollContainer.offset();
+            const cellOffset = $cell.offset();
+
+            const top = cellOffset.top - containerOffset.top + $scrollContainer.scrollTop() + $cell.outerHeight();
+            const left = cellOffset.left - containerOffset.left + $scrollContainer.scrollLeft();
+
+            // Apply proper positioning
+            $dropdown.css({
+                position: "absolute",
+                top: top + "px",
+                left: left + "px",
+                display: "block",
+                zIndex: 9999
+            });
+        });
+
+
+        // Close only table dropdowns
+        $(document).on("click", function () {
+            $(".table-dropdown").hide();
+        });
+
+
+
+
+
+
+
+
+        let copiedRowData = {
+            $row: null,
+            $sourceTable: null
+        };
+
+        // 📌 COPY ROW
+        $(document).on("click", ".copy-row-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $row = $(this).closest("tr");
+            const $table = $row.closest("table");
+
+            // Deep clone the row
+            copiedRowData.$row = $row.clone(true, true);
+            copiedRowData.$sourceTable = $table;
+
+            // Copy values of inputs and selects
+            $row.find("td").each(function (index) {
+                const originalInput = $(this).find("input, select");
+                const originalValue = originalInput.val();
+
+                const clonedInput = copiedRowData.$row.find("td").eq(index).find("input, select");
+
+                if (clonedInput.length === 0) return;
+
+                if (clonedInput.is("select")) {
+                    // Explicitly set selected attribute for correct <option>
+                    clonedInput.find("option").each(function () {
+                        if ($(this).val() === originalValue) {
+                            this.setAttribute("selected", "selected");
+                        } else {
+                            this.removeAttribute("selected");
+                        }
+                    });
+                } else {
+                    clonedInput.val(originalValue);
+                }
+            });
+
+            $(".table-dropdown").hide();
+        });
+
+
+        // 📌 PASTE ABOVE
+        $(document).on("click", ".paste-above-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $targetRow = $(this).closest("tr");
+            const $targetTable = $targetRow.closest("table");
+
+            if (!copiedRowData.$row || copiedRowData.$sourceTable[0] !== $targetTable[0]) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Action not allowed',
+                    text: 'Please copy a row from this same table first.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
+                });
+
+                return;
+            }
+
+            const $newRow = copiedRowData.$row.clone(true, true);
+            $targetRow.before($newRow);
+            $(".table-dropdown").hide();
+
+            var $tbody = $(this).closest("tbody");
+
+            var temp = $(".dynamic-table-resizing-input").val();
+            $tbody.closest(".table-responsive").find(".dynamic-table-resizing-input").val(parseInt(temp) + 1);
+
+            let showserial = $tbody.closest("table").data("showserial");
+            if (showserial == "yes") {
+                $tbody.children().each(function (index) {
+                    $(this).find("td:first").text(index + 1);
+                });
+            }
+        });
+
+
+        // 📌 PASTE BELOW
+        $(document).on("click", ".paste-below-btn", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const $targetRow = $(this).closest("tr");
+            const $targetTable = $targetRow.closest("table");
+
+            if (!copiedRowData.$row || copiedRowData.$sourceTable[0] !== $targetTable[0]) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Action not allowed',
+                    text: 'Please copy a row from this same table first.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
+                });
+
+                return;
+            }
+
+            const $newRow = copiedRowData.$row.clone(true, true);
+            $targetRow.after($newRow);
+            $(".table-dropdown").hide();
+
+
+            var $tbody = $(this).closest("tbody");
+
+            var temp = $(".dynamic-table-resizing-input").val();
+            $tbody.closest(".table-responsive").find(".dynamic-table-resizing-input").val(parseInt(temp) + 1);
+
+            let showserial = $tbody.closest("table").data("showserial");
+            if (showserial == "yes") {
+                $tbody.children().each(function (index) {
+                    $(this).find("td:first").text(index + 1);
+                });
+            }
+        });
+
+
+        // return;
+
+
+        // below is approval modal code
+        function openDownloadApprovalModal() {
+            var modalEl = document.getElementById('downloadApprovalModal');
+            var bsModal = new bootstrap.Modal(modalEl, {
+                backdrop: 'static',
+                keyboard: false
+            });
+            bsModal.show();
+        }
+        // Call this once (e.g. on page load) to get alerted whenever the #downloadApprovalModal is closed
+        function alertOnDownloadApprovalModalClose() {
+            const modalEl = document.getElementById('downloadApprovalModal');
+            if (!modalEl) return;
+
+            // prevent double-binding
+            if (modalEl._alertOnCloseBound) return;
+            modalEl._alertOnCloseBound = true;
+
+            modalEl.addEventListener('hidden.bs.modal', function () {
+                if ($("#downloadLang_form").hasClass("is-invalid")) {
+                    $("#downloadLang_form").removeClass("is-invalid");
+                }
+                if ($("#downloadLang_catalogue").hasClass("is-invalid")) {
+                    $("#downloadLang_catalogue").removeClass("is-invalid");
+                }
+            });
+        }
+
+        // Example: call once after DOM is ready
+        $(document).ready(function () {
+            alertOnDownloadApprovalModalClose();
+        });
+
+        // end approval modal code
+
+
+    </script>
+
+    <!-- ===============================================-->
+    <!--    End of App.js-->
+    <!-- ===============================================-->
+    <!-- Modal QR -->
+    <div class="modal fade" id="qrControlModal" tabindex="-1" aria-labelledby="qrControlLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrControlLabel">Código QR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="qr-print-section">
+                        <div id="view_display-qr_temporal" class="mb-3"></div>
+                    </div>
+                    <button type="button" id="btnPrintQR" class="btn btn-success">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/components/controller-table.js?v=1.1.0"></script>
+
+    <!-- Script para la impresion del codigo QR / Pendiente por revisar -->
+    <script>
+        function printElement(elemId, title = 'Imprimir') {
+            var mywindow = window.open('', 'PRINT', 'height=600,width=800');
+            mywindow.document.write('<html><head><title>' + title + '</title>');
+            mywindow.document.write('<link href="assets/css/theme.min.css" rel="stylesheet">');
+            mywindow.document.write('<style>');
+            mywindow.document.write(`
+            body { 
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 90vh;
+                text-align: center;
+            }
+            .print-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 30px;
+                font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+            @media print {
+                body {
+                    justify-content: flex-start; 
+                    padding: 10px;
+                }
+                .btn, .btn-close, .modal-footer, .breadcrumb, [id*="container-buttoms-context-"], .no-print {
+                    display: none !important;
+                }
+                .form-container, .row {
+                    page-break-inside: avoid; 
+                }
+                
+                #qr-print-section img {
+                    width: 15cm !important;  
+                    height: 15cm !important; 
+                    max-width: 15cm !important;
+                    display: block;
+                    margin: 20px auto;
+                    page-break-inside: avoid;
+                }
+            }
+        `);
+            mywindow.document.write('</style></head><body>');
+            mywindow.document.write('<h1 class="print-title">' + title + '</h1>');
+            var content = document.getElementById(elemId).innerHTML;
+            mywindow.document.write('<div id="' + elemId + '">' + content + '</div>');
+            mywindow.document.write('</body></html>');
+            mywindow.document.close();
+            mywindow.focus();
+            mywindow.onload = function () {
+                mywindow.print();
+                mywindow.close();
+            };
+            return true;
+        }
+        $(document).on('click', '#btnPrintQR', function () {
+            console.log("Imprimiendo desde modal QR...");
+            const title = $('#qrControlModal').data('print-title') || 'Código QR';
+            printElement('qr-print-section', title);
+        });
+        $(document).on('click', '.export-link', function (e) {
+            e.preventDefault();
+            let module = $(this).data('module');
+            let titlePrefix = $(this).data('title-prefix');
+            let title = `${titlePrefix} - ${module}`;
+            let elementId = `detail-form-${module}`;
+            console.log(`Imprimiendo ${title} para: ${module}`);
+            printElement(elementId, title);
+        });
+    </script>
+>>>>>>> 8af1971a22922d25efb0d7cba572f9d5074a0db8
 
 
 </body>
